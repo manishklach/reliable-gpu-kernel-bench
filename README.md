@@ -50,6 +50,8 @@ Most autotuners and generated-kernel pipelines still rank candidates by raw timi
 - [Architecture](docs/architecture.html)
 - [Variant search report](docs/variant_search_report.html)
 - [Visual gallery](reports/visual_assets/visual_gallery.html)
+- [Roadmap](ROADMAP.md)
+- [Contributing](CONTRIBUTING.md)
 
 ## Architecture preview
 
