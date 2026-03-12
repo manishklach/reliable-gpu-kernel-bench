@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noise-Aware Kernel Benchmarking Tech Spec</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffdf8;
+      --ink: #211d1a;
+      --muted: #6c6258;
+      --line: #d8cfc4;
+      --accent: #8c2f39;
+      --accent2: #2a6f97;
+      --accent3: #6b8e23;
+    }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+    main { max-width: 1120px; margin: 24px auto; padding: 28px 34px 40px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    h1, h2, h3 { margin-top: 0; }
+    h2 { margin-top: 28px; padding-top: 8px; border-top: 1px solid var(--line); }
+    p, li { line-height: 1.45; }
+    .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { border: 1px solid var(--line); background: #fffaf2; padding: 16px 18px; }
+    .callout { border-left: 4px solid var(--accent); padding: 12px 14px; background: #f8f1ea; }
+    code { font-family: "Courier New", monospace; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f4ede3; }
+    img { max-width: 100%; border: 1px solid var(--line); background: white; }
+    .svg-wrap { border: 1px solid var(--line); background: white; padding: 10px; }
+    .small { font-size: 0.94rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Technical Specification: Noise-Aware Kernel Benchmarking Prototype</h1>
+    <p class="muted">Workspace path: <code>C:\Users\ManishKL\Documents\Playground\kernel_noise_prototype</code></p>
+
+    <div class="callout">
+      <strong>Purpose.</strong> This prototype implements the patent-centered control loop: telemetry-derived contamination detection, pairwise ambiguity-guided rerun allocation, and confidence-gated promotion for generated kernels or kernel-like candidates.
+    </div>
+
+    <h2>1. Scope</h2>
+    <p>The prototype is intentionally split into two layers. The first layer is the selection engine in <code>engine.py</code>, which contains the contamination classifier, finalist ranking, pairwise ambiguity analysis, rerun budget logic, and promotion gate. The second layer is the workload adapter layer, which currently includes a CPU-backed simulation path in <code>demo.py</code> and a GPU-ready Triton adapter in <code>triton_adapter.py</code>.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Current runnable modes</h3>
+        <ul>
+          <li><code>python demo.py --backend cpu</code></li>
+          <li><code>python simulate_results.py --runs 50</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Prepared GPU modes</h3>
+        <ul>
+          <li><code>python demo.py --backend triton --workload matmul</code></li>
+          <li><code>python demo.py --backend triton --workload softmax</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>2. Core Decision Loop</h2>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 1060 280" width="100%" role="img" aria-label="Core decision loop diagram">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+            <path d="M0,0 L10,3 L0,6 Z" fill="#333"></path>
+          </marker>
+        </defs>
+        <rect x="20" y="60" width="140" height="58" rx="8" fill="#e8f1f8" stroke="#2a6f97"/>
+        <text x="90" y="86" text-anchor="middle" font-size="15">Candidate</text>
+        <text x="90" y="106" text-anchor="middle" font-size="15">kernels</text>
+
+        <rect x="205" y="60" width="150" height="58" rx="8" fill="#eef5e6" stroke="#6b8e23"/>
+        <text x="280" y="86" text-anchor="middle" font-size="15">Repeated</text>
+        <text x="280" y="106" text-anchor="middle" font-size="15">benchmark trials</text>
+
+        <rect x="400" y="26" width="170" height="58" rx="8" fill="#f9f1e5" stroke="#bc6c25"/>
+        <text x="485" y="52" text-anchor="middle" font-size="15">Telemetry capture</text>
+        <text x="485" y="72" text-anchor="middle" font-size="13">SM/mem clocks, thermal, CPU</text>
+
+        <rect x="400" y="116" width="170" height="58" rx="8" fill="#fce8ea" stroke="#8c2f39"/>
+        <text x="485" y="142" text-anchor="middle" font-size="15">Contamination</text>
+        <text x="485" y="162" text-anchor="middle" font-size="15">classifier</text>
+
+        <rect x="615" y="60" width="170" height="58" rx="8" fill="#e8f1f8" stroke="#2a6f97"/>
+        <text x="700" y="86" text-anchor="middle" font-size="15">Finalist pair</text>
+        <text x="700" y="106" text-anchor="middle" font-size="15">selection</text>
+
+        <rect x="830" y="60" width="170" height="58" rx="8" fill="#f4ede3" stroke="#6c6258"/>
+        <text x="915" y="86" text-anchor="middle" font-size="15">Pairwise ambiguity</text>
+        <text x="915" y="106" text-anchor="middle" font-size="15">and rerun budget</text>
+
+        <rect x="830" y="180" width="170" height="58" rx="8" fill="#eef5e6" stroke="#6b8e23"/>
+        <text x="915" y="206" text-anchor="middle" font-size="15">Promotion gate</text>
+        <text x="915" y="226" text-anchor="middle" font-size="13">promote / defer / reject</text>
+
+        <line x1="160" y1="89" x2="205" y2="89" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="355" y1="89" x2="400" y2="55" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="355" y1="89" x2="400" y2="145" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="570" y1="145" x2="615" y2="89" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="785" y1="89" x2="830" y2="89" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="915" y1="118" x2="915" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <path d="M830 210 C700 240, 480 240, 280 120" fill="none" stroke="#8c2f39" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="620" y="258" text-anchor="middle" font-size="13" fill="#8c2f39">if unresolved, rerun only finalist pair</text>
+      </svg>
+    </div>
+
+    <h2>3. Module Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Role</th>
+          <th>Key outputs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>engine.py</code></td>
+          <td>Core decision engine</td>
+          <td>Candidate summaries, finalist pair, pairwise analysis, rerun budget, promotion decision</td>
+        </tr>
+        <tr>
+          <td><code>demo.py</code></td>
+          <td>Runnable benchmark harness</td>
+          <td>Single-run report files and CPU simulation sessions</td>
+        </tr>
+        <tr>
+          <td><code>simulate_results.py</code></td>
+          <td>Batch simulation and result aggregation</td>
+          <td>CSV/JSON/HTML summaries and plots</td>
+        </tr>
+        <tr>
+          <td><code>triton_adapter.py</code></td>
+          <td>Real workload adapter and small variant generator</td>
+          <td>Official Triton matmul and softmax candidates plus fixed-config generated matmul variants</td>
+        </tr>
+        <tr>
+          <td><code>setup_gpu.py</code></td>
+          <td>GPU preflight checker</td>
+          <td>Environment validation for Triton/CUDA execution</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Telemetry and Contamination Model</h2>
+    <p>The contamination classifier evaluates telemetry per trial. The current implementation uses CPU load, thermal delta, SM-clock drop, memory-clock drop, active-process count, launch CPU affinity, NUMA placement, and an explicit synthetic interference flag. These signals are chosen to align with the patent thesis that contamination is defined by telemetry-derived hardware and host execution state, not by timing variance alone.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Signal</th>
+          <th>Current rule</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SM clock</td>
+          <td>Contaminated if drop exceeds 5%</td>
+          <td>Adds <code>sm_clock_drop</code> reason</td>
+        </tr>
+        <tr>
+          <td>Memory clock</td>
+          <td>Contaminated if drop exceeds 5%</td>
+          <td>Adds <code>mem_clock_drop</code> reason</td>
+        </tr>
+        <tr>
+          <td>Thermal delta</td>
+          <td>Contaminated if increase exceeds 7 C</td>
+          <td>Adds <code>thermal_drift</code> reason</td>
+        </tr>
+        <tr>
+          <td>CPU load</td>
+          <td>Contaminated if above 95%</td>
+          <td>Adds <code>cpu_load_high</code> reason</td>
+        </tr>
+        <tr>
+          <td>Concurrent activity</td>
+          <td>Contaminated if active processes &gt; 1</td>
+          <td>Adds <code>concurrent_activity</code> reason</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Pairwise Ranking and Promotion Logic</h2>
+    <div class="grid">
+      <div class="card small">
+        <h3>Finalist ranking</h3>
+        <p>Finalists are not selected by raw median. The engine computes a contamination-penalized ranking from acceptable-trial medians only. Candidates with weak acceptable-trial evidence receive an evidence penalty before entering the final pair.</p>
+      </div>
+      <div class="card small">
+        <h3>Promotion gate</h3>
+        <p>The current gate requires at least 10 acceptable trials for both finalists, at least 2% measured gain, at least 1.5% lower-confidence-bound gain, winner contamination at or below 15%, and loser contamination not more than 2x that threshold.</p>
+      </div>
+    </div>
+
+    <h2>6. Small Generated-Kernel Layer</h2>
+    <p>The matmul Triton path now supports a small generated-candidate mode. This does not synthesize arbitrary CUDA/PTX, but it does instantiate multiple real kernel candidates from a structured search space derived from the official Triton matmul tutorial. Each candidate fixes a specific tuple of block sizes, group size, number of warps, and number of stages, then routes that candidate through the same contamination-aware benchmark engine.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Generated candidate name</th>
+          <th>Key fixed parameters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>generated_matmul_balanced_128x128x64_w4_s4</code></td>
+          <td><code>BLOCK_SIZE_M=128, BLOCK_SIZE_N=128, BLOCK_SIZE_K=64, GROUP_SIZE_M=8, num_warps=4, num_stages=4</code></td>
+        </tr>
+        <tr>
+          <td><code>generated_matmul_wide_n_64x256x32_w4_s4</code></td>
+          <td><code>BLOCK_SIZE_M=64, BLOCK_SIZE_N=256, BLOCK_SIZE_K=32, GROUP_SIZE_M=8, num_warps=4, num_stages=4</code></td>
+        </tr>
+        <tr>
+          <td><code>generated_matmul_aggressive_128x256x64_w8_s3</code></td>
+          <td><code>BLOCK_SIZE_M=128, BLOCK_SIZE_N=256, BLOCK_SIZE_K=64, GROUP_SIZE_M=8, num_warps=8, num_stages=3</code></td>
+        </tr>
+        <tr>
+          <td><code>generated_matmul_compact_64x64x32_w2_s5</code></td>
+          <td><code>BLOCK_SIZE_M=64, BLOCK_SIZE_N=64, BLOCK_SIZE_K=32, GROUP_SIZE_M=8, num_warps=2, num_stages=5</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. Current Result Set</h2>
+    <p>The latest batch run used <code>simulate_results.py --runs 50</code>. This is a synthetic CPU-backed kernel simulation intended to stress the selection loop, not to prove absolute hardware performance.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Runs</td><td>50</td></tr>
+        <tr><td>Naive matches true winner</td><td>0</td></tr>
+        <tr><td>Naive false winners</td><td>50</td></tr>
+        <tr><td>Final promotes true winner</td><td>36</td></tr>
+        <tr><td>Final false promotions</td><td>1</td></tr>
+        <tr><td>Defers</td><td>13</td></tr>
+        <tr><td>Average final winner contamination rate</td><td>0.0501</td></tr>
+        <tr><td>Average final lower confidence bound</td><td>9.1099%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid">
+      <div>
+        <img src="plots/selection_outcomes.png" alt="Selection outcome plot">
+      </div>
+      <div>
+        <img src="plots/final_gain_vs_lcb.png" alt="Gain vs LCB plot">
+      </div>
+    </div>
+
+    <h2>8. Artifact Set</h2>
+    <ul>
+      <li><code>latest_run.html</code>, <code>latest_run.json</code>, <code>latest_run.txt</code></li>
+      <li><code>simulation_results.csv</code></li>
+      <li><code>simulation_summary.json</code></li>
+      <li><code>simulation_summary.html</code></li>
+      <li><code>plots/selection_outcomes.png</code></li>
+      <li><code>plots/final_gain_vs_lcb.png</code></li>
+      <li><code>plots/decision_timeline.png</code></li>
+    </ul>
+  </main>
+</body>
+</html>

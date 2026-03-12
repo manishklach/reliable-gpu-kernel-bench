@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation Summary</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f6f2ea;
+      color: #1f1a17;
+      margin: 0;
+    }
+    main {
+      max-width: 1080px;
+      margin: 24px auto;
+      background: #fffdf8;
+      border: 1px solid #d8cfc4;
+      padding: 28px 32px 36px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    th, td {
+      border: 1px solid #d8cfc4;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    th {
+      background: #f4ede3;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Noise-Aware Benchmark Simulation Summary</h1>
+    <p>CPU-backed repeated-session simulation comparing naive raw-median selection against contamination-aware finalist reruns and promotion gating.</p>
+    <h2>Plots</h2>
+    <p><img src="plots/selection_outcomes.png" alt="Selection outcome plot" style="max-width:100%; border:1px solid #d8cfc4;"></p>
+    <p><img src="plots/final_gain_vs_lcb.png" alt="Gain vs LCB plot" style="max-width:100%; border:1px solid #d8cfc4;"></p>
+    <p><img src="plots/decision_timeline.png" alt="Decision timeline plot" style="max-width:100%; border:1px solid #d8cfc4;"></p>
+    <table>
+      <tbody>
+        <tr><th>runs</th><td>50</td></tr><tr><th>true_winner</th><td>candidate_consistent</td></tr><tr><th>naive_matches_true</th><td>0</td></tr><tr><th>naive_false_winners</th><td>50</td></tr><tr><th>final_promotes_true</th><td>36</td></tr><tr><th>final_false_promotions</th><td>1</td></tr><tr><th>defer_count</th><td>13</td></tr><tr><th>reject_count</th><td>0</td></tr><tr><th>promote_count</th><td>37</td></tr><tr><th>decision_disagreement_count</th><td>50</td></tr><tr><th>avg_final_winner_contamination_rate</th><td>0.0501</td></tr><tr><th>avg_final_lcb_pct</th><td>9.1099</td></tr>
+      </tbody>
+    </table>
+    <h2>Per-Run Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Seed</th>
+          <th>Naive Winner</th>
+          <th>Decision</th>
+          <th>Final Winner</th>
+          <th>Final Loser</th>
+          <th>Gain %</th>
+          <th>LCB %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>7</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.731</td><td>2.794</td></tr><tr><td>8</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.947</td><td>1.530</td></tr><tr><td>9</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>9.520</td><td>9.520</td></tr><tr><td>10</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.514</td><td>1.202</td></tr><tr><td>11</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.833</td><td>2.833</td></tr><tr><td>12</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.049</td><td>0.799</td></tr><tr><td>13</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>11.837</td><td>10.274</td></tr><tr><td>14</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>20.397</td><td>19.147</td></tr><tr><td>15</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>12.057</td><td>12.057</td></tr><tr><td>16</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>11.025</td><td>10.525</td></tr><tr><td>17</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>8.856</td><td>8.543</td></tr><tr><td>18</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.516</td><td>2.516</td></tr><tr><td>19</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.905</td><td>3.405</td></tr><tr><td>20</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.181</td><td>3.181</td></tr><tr><td>21</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>17.793</td><td>17.376</td></tr><tr><td>22</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>11.221</td><td>10.804</td></tr><tr><td>23</td><td>candidate_fast_but_noisy</td><td>promote:candidate_baseline</td><td>candidate_baseline</td><td>candidate_slightly_slow</td><td>27.423</td><td>27.110</td></tr><tr><td>24</td><td>candidate_fast_but_noisy</td><td>defer:candidate_baseline:candidate_consistent</td><td>candidate_baseline</td><td>candidate_consistent</td><td>0.277</td><td>0.277</td></tr><tr><td>25</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>11.524</td><td>11.524</td></tr><tr><td>26</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>11.685</td><td>10.852</td></tr><tr><td>27</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>14.349</td><td>13.932</td></tr><tr><td>28</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>12.921</td><td>12.608</td></tr><tr><td>29</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.845</td><td>1.532</td></tr><tr><td>30</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.143</td><td>1.726</td></tr><tr><td>31</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.746</td><td>2.746</td></tr><tr><td>32</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>13.934</td><td>13.622</td></tr><tr><td>33</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>21.735</td><td>21.735</td></tr><tr><td>34</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.819</td><td>1.819</td></tr><tr><td>35</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>17.986</td><td>17.674</td></tr><tr><td>36</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_slightly_slow</td><td>30.233</td><td>29.608</td></tr><tr><td>37</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.506</td><td>1.881</td></tr><tr><td>38</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.507</td><td>1.257</td></tr><tr><td>39</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>16.324</td><td>16.012</td></tr><tr><td>40</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>4.831</td><td>4.831</td></tr><tr><td>41</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>14.703</td><td>14.286</td></tr><tr><td>42</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>2.773</td><td>2.460</td></tr><tr><td>43</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.880</td><td>3.880</td></tr><tr><td>44</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>15.972</td><td>15.347</td></tr><tr><td>45</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.515</td><td>1.515</td></tr><tr><td>46</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>13.877</td><td>13.877</td></tr><tr><td>47</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>13.726</td><td>13.101</td></tr><tr><td>48</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>6.827</td><td>6.827</td></tr><tr><td>49</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>7.025</td><td>7.025</td></tr><tr><td>50</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>3.988</td><td>3.988</td></tr><tr><td>51</td><td>candidate_fast_but_noisy</td><td>defer:candidate_consistent:candidate_baseline</td><td>candidate_consistent</td><td>candidate_baseline</td><td>1.793</td><td>1.168</td></tr><tr><td>52</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>15.936</td><td>15.519</td></tr><tr><td>53</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>16.246</td><td>15.621</td></tr><tr><td>54</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>6.618</td><td>6.618</td></tr><tr><td>55</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>12.729</td><td>12.729</td></tr><tr><td>56</td><td>candidate_fast_but_noisy</td><td>promote:candidate_consistent</td><td>candidate_consistent</td><td>candidate_baseline</td><td>14.285</td><td>14.285</td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

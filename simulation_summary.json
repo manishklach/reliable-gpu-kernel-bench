@@ -1,0 +1,2658 @@
+{
+  "summary": {
+    "runs": 50,
+    "true_winner": "candidate_consistent",
+    "naive_matches_true": 0,
+    "naive_false_winners": 50,
+    "final_promotes_true": 36,
+    "final_false_promotions": 1,
+    "defer_count": 13,
+    "reject_count": 0,
+    "promote_count": 37,
+    "decision_disagreement_count": 50,
+    "avg_final_winner_contamination_rate": 0.0501,
+    "avg_final_lcb_pct": 9.1099
+  },
+  "records": [
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 7,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 15.718364478595628,
+        "lower_confidence_bound_pct": 14.051697811928962,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.7311870373501628,
+        "lower_confidence_bound_pct": 2.7936870373501628,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.19934999383986,
+          "median_acceptable_ms": 1.19934999383986,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0148840051260777,
+          "median_acceptable_ms": 1.6835999995237216,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1606999905779958,
+          "median_acceptable_ms": 1.1546000023372471,
+          "acceptable_count": 13,
+          "contamination_rate": 0.1875
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 2.025100009632297,
+          "median_acceptable_ms": 2.0521999977063388,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 8,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 16.7037779529494,
+        "lower_confidence_bound_pct": 16.7037779529494,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.946851916915919,
+        "lower_confidence_bound_pct": 1.5301852502492523,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3620000099763274,
+          "median_acceptable_ms": 1.1891000031027943,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9987310087308288,
+          "median_acceptable_ms": 1.6803499893285334,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1659499868983403,
+          "median_acceptable_ms": 1.1659499868983403,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.8852999928640202,
+          "median_acceptable_ms": 1.8852999928640202,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 9,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 0.7302065164804409,
+        "lower_confidence_bound_pct": 0.7302065164804409,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 9.519735639659018,
+        "lower_confidence_bound_pct": 9.519735639659018,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2857499968959019,
+          "median_acceptable_ms": 1.2857499968959019,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.014623003138695,
+          "median_acceptable_ms": 1.7505499999970198,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.163349996204488,
+          "median_acceptable_ms": 1.163349996204488,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.664900002651848,
+          "median_acceptable_ms": 1.6623999981675297,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 10,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 10.407687824374072,
+        "lower_confidence_bound_pct": 9.574354491040738,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.5140038285649506,
+        "lower_confidence_bound_pct": 1.2015038285649506,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1910000030184165,
+          "median_acceptable_ms": 1.1889000015798956,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0401430033380166,
+          "median_acceptable_ms": 1.7095500079449266,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.171850017271936,
+          "median_acceptable_ms": 1.1709000100381672,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.718199986498803,
+          "median_acceptable_ms": 1.718199986498803,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 11,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 13.2651215416749,
+        "lower_confidence_bound_pct": 13.2651215416749,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.8327935537730853,
+        "lower_confidence_bound_pct": 2.8327935537730853,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2143500207457691,
+          "median_acceptable_ms": 1.2143500207457691,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0131150085362606,
+          "median_acceptable_ms": 1.6602999967290089,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1799499916378409,
+          "median_acceptable_ms": 1.1799499916378409,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7957499949261546,
+          "median_acceptable_ms": 1.7957499949261546,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 12,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 7.469359966349284,
+        "lower_confidence_bound_pct": 6.636026633015951,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.0486660381482125,
+        "lower_confidence_bound_pct": 0.7986660381482125,
+        "unresolved": true,
+        "reasons": [
+          "lcb_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1959000112256035,
+          "median_acceptable_ms": 1.1959000112256035,
+          "acceptable_count": 12,
+          "contamination_rate": 0.25
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9990499942796305,
+          "median_acceptable_ms": 1.7025000124704093,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1703500204021111,
+          "median_acceptable_ms": 1.171400013845414,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.8187499954365194,
+          "median_acceptable_ms": 1.8187499954365194,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 13,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.771574589695467,
+        "lower_confidence_bound_pct": 1.9382412563621336,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.836611072808212,
+        "lower_confidence_bound_pct": 10.274111072808212,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.4162500156089664,
+          "median_acceptable_ms": 1.3293500087456778,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.000499996880535,
+          "median_acceptable_ms": 2.02829999034293,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1920499964617193,
+          "median_acceptable_ms": 1.17200001841411,
+          "acceptable_count": 11,
+          "contamination_rate": 0.3125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.8283500103279948,
+          "median_acceptable_ms": 1.8283500103279948,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 14,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 20.280198533373795,
+        "lower_confidence_bound_pct": 20.280198533373795,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 20.397159735593,
+        "lower_confidence_bound_pct": 19.147159735593,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.4632499951403588,
+          "median_acceptable_ms": 1.5207999967969954,
+          "acceptable_count": 9,
+          "contamination_rate": 0.25
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9785179983009583,
+          "median_acceptable_ms": 1.7230499943252653,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.187349989777431,
+          "median_acceptable_ms": 1.210599992191419,
+          "acceptable_count": 10,
+          "contamination_rate": 0.16666666666666666
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6766500048106536,
+          "median_acceptable_ms": 1.6757000121288002,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 15,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 23.108206631142554,
+        "lower_confidence_bound_pct": 23.108206631142554,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 12.057488034737204,
+        "lower_confidence_bound_pct": 12.057488034737204,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3219999964348972,
+          "median_acceptable_ms": 1.3219999964348972,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9888130007311702,
+          "median_acceptable_ms": 1.7716999864205718,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1626000050455332,
+          "median_acceptable_ms": 1.1626000050455332,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7001499945763499,
+          "median_acceptable_ms": 1.7001499945763499,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 16,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 19.012870036799143,
+        "lower_confidence_bound_pct": 18.17953670346581,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.02459911898131,
+        "lower_confidence_bound_pct": 10.52459911898131,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3649999891640618,
+          "median_acceptable_ms": 1.3292999938130379,
+          "acceptable_count": 19,
+          "contamination_rate": 0.05
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0542659927159548,
+          "median_acceptable_ms": 1.6251500055659562,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1807999981101602,
+          "median_acceptable_ms": 1.182749998406507,
+          "acceptable_count": 18,
+          "contamination_rate": 0.1
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7175499961012974,
+          "median_acceptable_ms": 1.7143999866675586,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 17,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 8.658337719258398,
+        "lower_confidence_bound_pct": 7.825004385925065,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 8.855876047579253,
+        "lower_confidence_bound_pct": 8.543376047579253,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2957500148331746,
+          "median_acceptable_ms": 1.2957500148331746,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.00505299778888,
+          "median_acceptable_ms": 1.6793499962659553,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1815999896498397,
+          "median_acceptable_ms": 1.180999999633059,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7013000033330172,
+          "median_acceptable_ms": 1.7060000100173056,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 18,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 27.464594262718485,
+        "lower_confidence_bound_pct": 26.631260929385153,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.515527008065485,
+        "lower_confidence_bound_pct": 2.515527008065485,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.201450009830296,
+          "median_acceptable_ms": 1.20749999769032,
+          "acceptable_count": 17,
+          "contamination_rate": 0.15
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0140429987222888,
+          "median_acceptable_ms": 1.7142000142484903,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1698000016622245,
+          "median_acceptable_ms": 1.1650500091491267,
+          "acceptable_count": 16,
+          "contamination_rate": 0.2
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7136499955086038,
+          "median_acceptable_ms": 1.7136499955086038,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 19,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_consistent",
+        "rel_gain_pct": 0.7476802976774564,
+        "lower_confidence_bound_pct": -0.9189863689892102,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low",
+          "candidate_consistent_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.905040071689426,
+        "lower_confidence_bound_pct": 3.405040071689426,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2278999929549173,
+          "median_acceptable_ms": 1.2278999929549173,
+          "acceptable_count": 18,
+          "contamination_rate": 0.1
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9883779974188655,
+          "median_acceptable_ms": 1.6713499935576692,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1727500095730647,
+          "median_acceptable_ms": 1.179950006189756,
+          "acceptable_count": 18,
+          "contamination_rate": 0.1
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7414999892935157,
+          "median_acceptable_ms": 1.7414999892935157,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 20,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_consistent",
+        "rel_gain_pct": 5.161107914396945,
+        "lower_confidence_bound_pct": 5.161107914396945,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low",
+          "candidate_consistent_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.18072614357933,
+        "lower_confidence_bound_pct": 3.18072614357933,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2057000130880624,
+          "median_acceptable_ms": 1.2057000130880624,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0034289938630536,
+          "median_acceptable_ms": 1.6627500008326024,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.167349997558631,
+          "median_acceptable_ms": 1.167349997558631,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.688750009634532,
+          "median_acceptable_ms": 1.688750009634532,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 21,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.357806460760727,
+        "lower_confidence_bound_pct": 14.357806460760727,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 17.792879212257827,
+        "lower_confidence_bound_pct": 17.37621254559116,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.4199500001268461,
+          "median_acceptable_ms": 1.4199500001268461,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0025589956785552,
+          "median_acceptable_ms": 1.666349999140948,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1650999949779361,
+          "median_acceptable_ms": 1.1673000117298216,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6770000074757263,
+          "median_acceptable_ms": 1.6770000074757263,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 22,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 28.194696867295598,
+        "lower_confidence_bound_pct": 28.194696867295598,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.220789912282877,
+        "lower_confidence_bound_pct": 10.80412324561621,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.18530000327155,
+          "median_acceptable_ms": 1.18530000327155,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0031390000949614,
+          "median_acceptable_ms": 1.5032000083010644,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.0298999986844137,
+          "median_acceptable_ms": 1.0522999800741673,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.662049995502457,
+          "median_acceptable_ms": 1.662049995502457,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 23,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_slightly_slow",
+        "rel_gain_pct": 24.12152859083195,
+        "lower_confidence_bound_pct": 23.288195257498618,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low",
+          "candidate_slightly_slow_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_slightly_slow",
+        "rel_gain_pct": 27.422731175314,
+        "lower_confidence_bound_pct": 27.110231175314,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.203649997478351,
+          "median_acceptable_ms": 1.213999988976866,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0187409922946244,
+          "median_acceptable_ms": 1.6821500175865367,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1546500027179718,
+          "median_acceptable_ms": 1.0812000109581277,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6760500147938728,
+          "median_acceptable_ms": 1.6727000183891505,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 24,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 16.871879248734576,
+        "lower_confidence_bound_pct": 16.871879248734576,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_consistent",
+        "rel_gain_pct": 0.27662362237872945,
+        "lower_confidence_bound_pct": 0.27662362237872945,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_baseline:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1896500072907656,
+          "median_acceptable_ms": 1.1896500072907656,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0076050003408454,
+          "median_acceptable_ms": 1.6640999965602532,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.192949988762848,
+          "median_acceptable_ms": 1.192949988762848,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7506500153103843,
+          "median_acceptable_ms": 1.7506500153103843,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 25,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 6.714998103731277,
+        "lower_confidence_bound_pct": 6.714998103731277,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.524384370240895,
+        "lower_confidence_bound_pct": 11.524384370240895,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.338899994152598,
+          "median_acceptable_ms": 1.338899994152598,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9730659905471838,
+          "median_acceptable_ms": 1.6850499960128218,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1846000124933198,
+          "median_acceptable_ms": 1.1846000124933198,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6969999996945262,
+          "median_acceptable_ms": 1.6969999996945262,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 26,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.01995998850414,
+        "lower_confidence_bound_pct": 11.01995998850414,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.685316777406713,
+        "lower_confidence_bound_pct": 10.85198344407338,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3058999902568758,
+          "median_acceptable_ms": 1.322599986451678,
+          "acceptable_count": 10,
+          "contamination_rate": 0.16666666666666666
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9872179970261641,
+          "median_acceptable_ms": 1.7354500014334917,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1680499883368611,
+          "median_acceptable_ms": 1.1680499883368611,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7804999952204525,
+          "median_acceptable_ms": 1.7804999952204525,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 27,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 10.370971221658031,
+        "lower_confidence_bound_pct": 10.370971221658031,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.348727840693195,
+        "lower_confidence_bound_pct": 13.93206117402653,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.444099994841963,
+          "median_acceptable_ms": 1.3488999975379556,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9837089956272392,
+          "median_acceptable_ms": 1.5325000131269917,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1553500080481172,
+          "median_acceptable_ms": 1.1553500080481172,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6784500185167417,
+          "median_acceptable_ms": 1.6784500185167417,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 28,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.010347915486395,
+        "lower_confidence_bound_pct": 13.177014582153062,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 12.920855715395675,
+        "lower_confidence_bound_pct": 12.608355715395675,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3465999945765361,
+          "median_acceptable_ms": 1.3722000003326684,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0061550061800517,
+          "median_acceptable_ms": 1.6560499934712425,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.2325500138103962,
+          "median_acceptable_ms": 1.1949000181630254,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6948499833233654,
+          "median_acceptable_ms": 1.6948499833233654,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 29,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 0.21705322228395227,
+        "lower_confidence_bound_pct": -0.616280111049381,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.8446171219255434,
+        "lower_confidence_bound_pct": 1.5321171219255434,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1899500095751137,
+          "median_acceptable_ms": 1.1899500095751137,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.011925999482628,
+          "median_acceptable_ms": 1.6821000026538968,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.163349996204488,
+          "median_acceptable_ms": 1.1679999879561365,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7181499861180782,
+          "median_acceptable_ms": 1.7181499861180782,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 30,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.8431012858764975,
+        "lower_confidence_bound_pct": 3.8431012858764975,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.1430357415296526,
+        "lower_confidence_bound_pct": 1.726369074862986,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.220399994053878,
+          "median_acceptable_ms": 1.2038999993819743,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0079820032115094,
+          "median_acceptable_ms": 1.658799999859184,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1780999921029434,
+          "median_acceptable_ms": 1.1780999921029434,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7542499990668148,
+          "median_acceptable_ms": 1.7542499990668148,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 31,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.4799997228088535,
+        "lower_confidence_bound_pct": 3.4799997228088535,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.7461685140256327,
+        "lower_confidence_bound_pct": 2.7461685140256327,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1907500011147931,
+          "median_acceptable_ms": 1.1907500011147931,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9909880004124716,
+          "median_acceptable_ms": 1.6248000029008836,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1580499995034188,
+          "median_acceptable_ms": 1.1580499995034188,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7063000123016536,
+          "median_acceptable_ms": 1.7063000123016536,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 32,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.5888576414328257,
+        "lower_confidence_bound_pct": 0.7555243080994924,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 13.934365914552888,
+        "lower_confidence_bound_pct": 13.621865914552888,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3060000055702403,
+          "median_acceptable_ms": 1.349900005152449,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9670050034765153,
+          "median_acceptable_ms": 1.7097000236390159,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1617999989539385,
+          "median_acceptable_ms": 1.1617999989539385,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6715999954612926,
+          "median_acceptable_ms": 1.6715999954612926,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 33,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 25.278279248202505,
+        "lower_confidence_bound_pct": 25.278279248202505,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 21.734844011643712,
+        "lower_confidence_bound_pct": 21.734844011643712,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.5217499894788489,
+          "median_acceptable_ms": 1.5217499894788489,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9830129987676627,
+          "median_acceptable_ms": 1.6954999882727861,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1910000030184165,
+          "median_acceptable_ms": 1.1910000030184165,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.649449986871332,
+          "median_acceptable_ms": 1.649449986871332,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 34,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 0.9121373369895017,
+        "lower_confidence_bound_pct": 0.9121373369895017,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.8187987646018107,
+        "lower_confidence_bound_pct": 1.8187987646018107,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.17935000162106,
+          "median_acceptable_ms": 1.17935000162106,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9790400022757239,
+          "median_acceptable_ms": 1.7249999946216121,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1578999983612448,
+          "median_acceptable_ms": 1.1578999983612448,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6809499938972294,
+          "median_acceptable_ms": 1.6809499938972294,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 35,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 5.2781639855975735,
+        "lower_confidence_bound_pct": 4.4448306522642405,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 17.986322307657368,
+        "lower_confidence_bound_pct": 17.673822307657368,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.418299987562932,
+          "median_acceptable_ms": 1.418299987562932,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9797069989144801,
+          "median_acceptable_ms": 1.7225500050699338,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1663999903248623,
+          "median_acceptable_ms": 1.1631999805103987,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.695300015853718,
+          "median_acceptable_ms": 1.695300015853718,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 36,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_slightly_slow",
+        "rel_gain_pct": 23.168018853193615,
+        "lower_confidence_bound_pct": 22.334685519860283,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_slightly_slow_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_slightly_slow",
+        "rel_gain_pct": 30.23283941850274,
+        "lower_confidence_bound_pct": 29.60783941850274,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.287100007175468,
+          "median_acceptable_ms": 1.263400015886873,
+          "acceptable_count": 3,
+          "contamination_rate": 0.5
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0034869943046942,
+          "median_acceptable_ms": 1.6861499898368493,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1583999876165763,
+          "median_acceptable_ms": 1.1566000030143186,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6656500229146332,
+          "median_acceptable_ms": 1.6578000213485211,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 37,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 21.092038546118836,
+        "lower_confidence_bound_pct": 20.258705212785504,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.5057412772701384,
+        "lower_confidence_bound_pct": 1.8807412772701384,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.170899995486252,
+          "median_acceptable_ms": 1.1752999853342772,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9669469945947639,
+          "median_acceptable_ms": 1.654049992794171,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1458500084700063,
+          "median_acceptable_ms": 1.1458500084700063,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7416999908164144,
+          "median_acceptable_ms": 1.7416999908164144,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 38,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 0.8110368830946093,
+        "lower_confidence_bound_pct": 0.8110368830946093,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.5065757482910946,
+        "lower_confidence_bound_pct": 1.2565757482910946,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low",
+          "lcb_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2034499959554523,
+          "median_acceptable_ms": 1.2168000102974474,
+          "acceptable_count": 9,
+          "contamination_rate": 0.25
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9689480013912543,
+          "median_acceptable_ms": 1.6876500158105046,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.186299996334128,
+          "median_acceptable_ms": 1.186299996334128,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.8419499829178676,
+          "median_acceptable_ms": 1.8419499829178676,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 39,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 24.256631991352528,
+        "lower_confidence_bound_pct": 23.423298658019196,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 16.324191871735938,
+        "lower_confidence_bound_pct": 16.011691871735938,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2960500025656074,
+          "median_acceptable_ms": 1.3967000122647732,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.972804988559801,
+          "median_acceptable_ms": 1.679549997788854,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.169000010122545,
+          "median_acceptable_ms": 1.1687000223901123,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6941500070970505,
+          "median_acceptable_ms": 1.698100008070469,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 40,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 5.85628900370734,
+        "lower_confidence_bound_pct": 5.85628900370734,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 4.830510003402258,
+        "lower_confidence_bound_pct": 4.830510003402258,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2390000047162175,
+          "median_acceptable_ms": 1.2390000047162175,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9761400055140256,
+          "median_acceptable_ms": 1.6678999963914976,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1791499855462462,
+          "median_acceptable_ms": 1.1791499855462462,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7256999999517575,
+          "median_acceptable_ms": 1.7256999999517575,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 41,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 9.70557257155439,
+        "lower_confidence_bound_pct": 9.70557257155439,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.702504143060754,
+        "lower_confidence_bound_pct": 14.285837476394088,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3455999869620427,
+          "median_acceptable_ms": 1.3932999863754958,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0061259975191206,
+          "median_acceptable_ms": 1.6777999990154058,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1884499981533736,
+          "median_acceptable_ms": 1.1884499981533736,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7229500081157312,
+          "median_acceptable_ms": 1.7229500081157312,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 42,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.7841337975884217,
+        "lower_confidence_bound_pct": 2.9508004642550887,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.772823878794398,
+        "lower_confidence_bound_pct": 2.460323878794398,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1827999987872317,
+          "median_acceptable_ms": 1.1775000020861626,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9793590047047472,
+          "median_acceptable_ms": 1.601299998583272,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.144850000855513,
+          "median_acceptable_ms": 1.144850000855513,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6862000047694892,
+          "median_acceptable_ms": 1.6964999958872795,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 43,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.8884256549370595,
+        "lower_confidence_bound_pct": 3.8884256549370595,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.8797247644233606,
+        "lower_confidence_bound_pct": 3.8797247644233606,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1972499924013391,
+          "median_acceptable_ms": 1.1972499924013391,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9908139990875497,
+          "median_acceptable_ms": 1.6657499800203368,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1507999879540876,
+          "median_acceptable_ms": 1.1507999879540876,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7762500065146014,
+          "median_acceptable_ms": 1.7670000088401139,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 44,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 21.58157688485819,
+        "lower_confidence_bound_pct": 19.914910218191523,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 15.972298604980494,
+        "lower_confidence_bound_pct": 15.347298604980494,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.364550000289455,
+          "median_acceptable_ms": 1.364550000289455,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9674110065679996,
+          "median_acceptable_ms": 1.691900019068271,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.145849993918091,
+          "median_acceptable_ms": 1.146599999628961,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7154499946627766,
+          "median_acceptable_ms": 1.7154499946627766,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 45,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 2.005961537410966,
+        "lower_confidence_bound_pct": 2.005961537410966,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.5148292519493063,
+        "lower_confidence_bound_pct": 1.5148292519493063,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1783499940065667,
+          "median_acceptable_ms": 1.1783499940065667,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9724280025693587,
+          "median_acceptable_ms": 1.6305999888572842,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1605000036070123,
+          "median_acceptable_ms": 1.1605000036070123,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.710199998342432,
+          "median_acceptable_ms": 1.710199998342432,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 46,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.312167732208309,
+        "lower_confidence_bound_pct": 14.312167732208309,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 13.877310537247434,
+        "lower_confidence_bound_pct": 13.877310537247434,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3554500037571415,
+          "median_acceptable_ms": 1.3554500037571415,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.98771100922022,
+          "median_acceptable_ms": 1.568150008097291,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.167349997558631,
+          "median_acceptable_ms": 1.167349997558631,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.696000006631948,
+          "median_acceptable_ms": 1.696000006631948,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 47,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 19.490218629301026,
+        "lower_confidence_bound_pct": 18.656885295967694,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 13.726373820432572,
+        "lower_confidence_bound_pct": 13.101373820432572,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.330650004092604,
+          "median_acceptable_ms": 1.330650004092604,
+          "acceptable_count": 16,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9781700040912255,
+          "median_acceptable_ms": 1.661899994360283,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1482999980216846,
+          "median_acceptable_ms": 1.1480000102892518,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6844000056153163,
+          "median_acceptable_ms": 1.6844000056153163,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 48,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 15.441615650896468,
+        "lower_confidence_bound_pct": 15.441615650896468,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 6.826517749507231,
+        "lower_confidence_bound_pct": 6.826517749507231,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2407500034896657,
+          "median_acceptable_ms": 1.2407500034896657,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9763429901795461,
+          "median_acceptable_ms": 1.6408000083174556,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.156049984274432,
+          "median_acceptable_ms": 1.156049984274432,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.676450003287755,
+          "median_acceptable_ms": 1.676450003287755,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 49,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_baseline",
+        "loser_name": "candidate_consistent",
+        "rel_gain_pct": 0.5707313832093529,
+        "lower_confidence_bound_pct": 0.5707313832093529,
+        "unresolved": true,
+        "reasons": [
+          "candidate_baseline_acceptable_count_low",
+          "candidate_consistent_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 7.024598576117364,
+        "lower_confidence_bound_pct": 7.024598576117364,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2684000103035942,
+          "median_acceptable_ms": 1.2684000103035942,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0663009915151633,
+          "median_acceptable_ms": 1.699300017207861,
+          "acceptable_count": 1,
+          "contamination_rate": 0.8333333333333334
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1793000012403354,
+          "median_acceptable_ms": 1.1793000012403354,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6822500037960708,
+          "median_acceptable_ms": 1.6862000047694892,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 50,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 11.798840314252015,
+        "lower_confidence_bound_pct": 11.798840314252015,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 3.9881759039352835,
+        "lower_confidence_bound_pct": 3.9881759039352835,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2010499922325835,
+          "median_acceptable_ms": 1.2010499922325835,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9845499935909173,
+          "median_acceptable_ms": 1.6835999995237216,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.153150005848147,
+          "median_acceptable_ms": 1.153150005848147,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.702100009424612,
+          "median_acceptable_ms": 1.702100009424612,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 51,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.3195836008408597,
+        "lower_confidence_bound_pct": 0.4862502675075264,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low",
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 1.7931491556599592,
+        "lower_confidence_bound_pct": 1.1681491556599592,
+        "unresolved": true,
+        "reasons": [
+          "gain_below_threshold",
+          "lcb_below_threshold"
+        ]
+      },
+      "decision": "defer:candidate_consistent:candidate_baseline",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.1679999879561365,
+          "median_acceptable_ms": 1.1766999959945679,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0091129949432798,
+          "median_acceptable_ms": 1.6897500026971102,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1486000148579478,
+          "median_acceptable_ms": 1.1556000099517405,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7614999960642308,
+          "median_acceptable_ms": 1.7614999960642308,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 52,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 16.313049640414885,
+        "lower_confidence_bound_pct": 16.313049640414885,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 15.936096785663459,
+        "lower_confidence_bound_pct": 15.519430118996793,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3927499967394397,
+          "median_acceptable_ms": 1.3927499967394397,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9815919963875784,
+          "median_acceptable_ms": 1.4907500008121133,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1669999948935583,
+          "median_acceptable_ms": 1.170800009276718,
+          "acceptable_count": 11,
+          "contamination_rate": 0.08333333333333333
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.6562999953748658,
+          "median_acceptable_ms": 1.6539999924134463,
+          "acceptable_count": 5,
+          "contamination_rate": 0.16666666666666666
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 53,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 13.020642829718602,
+        "lower_confidence_bound_pct": 11.353976163051936,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 16.24647976869751,
+        "lower_confidence_bound_pct": 15.621479768697512,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.3800499873468652,
+          "median_acceptable_ms": 1.4199999859556556,
+          "acceptable_count": 15,
+          "contamination_rate": 0.0625
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 1.0353290088823996,
+          "median_acceptable_ms": 1.8137500155717134,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1709499958669767,
+          "median_acceptable_ms": 1.1892999755218625,
+          "acceptable_count": 14,
+          "contamination_rate": 0.125
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7325499939033762,
+          "median_acceptable_ms": 1.7325499939033762,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 54,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 18.030138376656033,
+        "lower_confidence_bound_pct": 18.030138376656033,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 6.617618446224212,
+        "lower_confidence_bound_pct": 6.617618446224212,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.2572499981615692,
+          "median_acceptable_ms": 1.2572499981615692,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9689770016120746,
+          "median_acceptable_ms": 1.6413499979535118,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1740499903680757,
+          "median_acceptable_ms": 1.1740499903680757,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.668999990215525,
+          "median_acceptable_ms": 1.668999990215525,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 55,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 24.6220227141317,
+        "lower_confidence_bound_pct": 24.6220227141317,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 12.728577995296325,
+        "lower_confidence_bound_pct": 12.728577995296325,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.323400007095188,
+          "median_acceptable_ms": 1.323400007095188,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9702820115489884,
+          "median_acceptable_ms": 1.7025999986799434,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.1549500050023198,
+          "median_acceptable_ms": 1.1549500050023198,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7813999875215814,
+          "median_acceptable_ms": 1.7813999875215814,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    },
+    {
+      "backend": "cpu",
+      "workload": "matmul",
+      "seed": 56,
+      "naive_winner": "candidate_fast_but_noisy",
+      "initial_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 5.601373576547966,
+        "lower_confidence_bound_pct": 5.601373576547966,
+        "unresolved": true,
+        "reasons": [
+          "candidate_consistent_acceptable_count_low",
+          "candidate_baseline_acceptable_count_low"
+        ]
+      },
+      "final_finalist_analysis": {
+        "winner_name": "candidate_consistent",
+        "loser_name": "candidate_baseline",
+        "rel_gain_pct": 14.285204308961793,
+        "lower_confidence_bound_pct": 14.285204308961793,
+        "unresolved": false,
+        "reasons": []
+      },
+      "decision": "promote:candidate_consistent",
+      "summaries": {
+        "candidate_baseline": {
+          "median_all_ms": 1.401450004777871,
+          "median_acceptable_ms": 1.401450004777871,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_fast_but_noisy": {
+          "median_all_ms": 0.9814180119428783,
+          "median_acceptable_ms": 1.7164999881060794,
+          "acceptable_count": 2,
+          "contamination_rate": 0.6666666666666666
+        },
+        "candidate_consistent": {
+          "median_all_ms": 1.2012500083073974,
+          "median_acceptable_ms": 1.2012500083073974,
+          "acceptable_count": 12,
+          "contamination_rate": 0.0
+        },
+        "candidate_slightly_slow": {
+          "median_all_ms": 1.7647000058786944,
+          "median_acceptable_ms": 1.7647000058786944,
+          "acceptable_count": 6,
+          "contamination_rate": 0.0
+        }
+      }
+    }
+  ]
+}

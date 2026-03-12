@@ -1,0 +1,8 @@
+Noise-aware kernel benchmarking demo
+naive_winner=candidate_consistent
+final_decision=defer:candidate_consistent:candidate_baseline
+
+candidate_baseline: all_median=1.7012 acceptable_median=1.6055000014603138 acceptable=3 contamination_rate=0.85
+candidate_fast_but_noisy: all_median=1.4378 acceptable_median=None acceptable=0 contamination_rate=1.00
+candidate_consistent: all_median=1.3502 acceptable_median=1.23720002011396 acceptable=3 contamination_rate=0.85
+candidate_slightly_slow: all_median=2.0607 acceptable_median=1.898799993796274 acceptable=2 contamination_rate=0.67

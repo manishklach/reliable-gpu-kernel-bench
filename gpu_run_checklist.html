@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPU Run Checklist - Noise-Aware Kernel Benchmarking</title>
+  <style>
+    :root {
+      --bg: #f2efe8;
+      --paper: #fffdf8;
+      --ink: #1f1a17;
+      --muted: #6c6258;
+      --line: #d8cfc4;
+      --accent: #2a6f97;
+      --ok: #2a9d8f;
+      --warn: #bc6c25;
+    }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+    main { max-width: 1000px; margin: 24px auto; padding: 28px 34px 40px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    h1, h2 { margin-top: 0; }
+    h2 { margin-top: 26px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .step { border: 1px solid var(--line); background: #fffaf2; padding: 14px 16px; margin-top: 12px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.85rem; border: 1px solid var(--line); margin-left: 8px; }
+    .ok { background: #e5f5f1; color: var(--ok); }
+    .warn { background: #fdf2e5; color: var(--warn); }
+    pre, code { font-family: "Courier New", monospace; }
+    pre { background: #f7f2eb; border: 1px solid var(--line); padding: 12px 14px; overflow-x: auto; }
+    ul, p { line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>GPU Run Checklist</h1>
+    <p>This checklist is the shortest path from the current CPU-backed prototype to a real Triton-backed accelerator run.</p>
+
+    <h2>1. Copy the folder</h2>
+    <div class="step">
+      <p>Copy the entire folder below to the GPU machine:</p>
+      <pre>C:\Users\ManishKL\Documents\Playground\kernel_noise_prototype</pre>
+      <p>The Triton tutorial source files are already inside <code>triton_tutorials</code>.</p>
+    </div>
+
+    <h2>2. Prepare the Python environment</h2>
+    <div class="step">
+      <p>Install a CUDA-capable PyTorch build and Triton in the same environment. Then install the project dependencies:</p>
+      <pre>python -m pip install -r C:\path\to\kernel_noise_prototype\requirements-gpu.txt</pre>
+      <p><span class="badge warn">Important</span> This must be a GPU-enabled environment. CPU-only PyTorch will not run the Triton paths.</p>
+    </div>
+
+    <h2>3. Preflight check</h2>
+    <div class="step">
+      <p>Run the built-in preflight script:</p>
+      <pre>python C:\path\to\kernel_noise_prototype\setup_gpu.py</pre>
+      <p>Expected checks:</p>
+      <ul>
+        <li><code>torch.cuda.is_available() == True</code></li>
+        <li><code>Triton importable == True</code></li>
+        <li>Matmul tutorial exists and imports</li>
+        <li>Softmax tutorial exists and imports</li>
+        <li><code>nvidia-smi</code> is visible and returns GPU information</li>
+      </ul>
+      <p><span class="badge ok">Pass condition</span> Both tutorial imports succeed and CUDA is available.</p>
+    </div>
+
+    <h2>4. Run the real Triton workloads</h2>
+    <div class="step">
+      <p>Matrix multiplication workload:</p>
+      <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload matmul</pre>
+      <p>Generated matmul variant workload:</p>
+      <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload matmul --candidate-mode generated</pre>
+      <p>Fused softmax workload:</p>
+      <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload softmax</pre>
+    </div>
+
+    <h2>5. Inspect outputs</h2>
+    <div class="step">
+      <p>After each run, inspect:</p>
+      <ul>
+        <li><code>latest_run.html</code></li>
+        <li><code>latest_run.json</code></li>
+        <li><code>latest_run.txt</code></li>
+      </ul>
+      <p>These show the naive winner, finalist-pair analysis, final decision, and contamination rates.</p>
+    </div>
+
+    <h2>6. Suggested first GPU validation sequence</h2>
+    <div class="step">
+      <ul>
+        <li>Run <code>setup_gpu.py</code></li>
+        <li>Run Triton matmul once and verify reports are generated</li>
+        <li>Run Triton softmax once and verify reports are generated</li>
+        <li>Capture one or two screenshots of <code>latest_run.html</code> and terminal output for internal sharing</li>
+        <li>If telemetry is stable, consider adding a Triton batch simulator next</li>
+      </ul>
+    </div>
+
+    <h2>7. Known constraints</h2>
+    <div class="step">
+      <ul>
+        <li>The current multi-run simulation is CPU-backed and synthetic; it demonstrates the decision logic, not real GPU throughput.</li>
+        <li>The Triton adapter trims the tutorial files before their top-level demo code, so importing them should not auto-run tutorial plots.</li>
+        <li>If a GPU machine has different tutorial paths, set <code>TRITON_TUTORIAL_MATMUL</code> or <code>TRITON_TUTORIAL_SOFTMAX</code>.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

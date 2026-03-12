@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Findings - Noise-Aware Kernel Benchmarking</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffdf8;
+      --ink: #211d1a;
+      --muted: #6c6258;
+      --line: #d8cfc4;
+      --accent: #8c2f39;
+      --good: #2a9d8f;
+      --warn: #bc6c25;
+    }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+    main { max-width: 1080px; margin: 24px auto; padding: 28px 34px 40px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    h1, h2 { margin-top: 0; }
+    h2 { margin-top: 26px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .hero { border-left: 4px solid var(--accent); background: #f8f1ea; padding: 14px 16px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+    .metric { border: 1px solid var(--line); background: #fffaf2; padding: 14px 16px; }
+    .metric .label { font-size: 0.92rem; color: var(--muted); }
+    .metric .value { font-size: 2rem; margin-top: 8px; }
+    .good { color: var(--good); }
+    .warn { color: var(--warn); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    img { max-width: 100%; border: 1px solid var(--line); background: white; }
+    ul, p { line-height: 1.45; }
+    code { font-family: "Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Key Findings</h1>
+    <p class="hero"><strong>Headline.</strong> In the latest 50-run CPU-backed simulation, naive raw-median selection chose the wrong winner in every run, while the contamination-aware finalist-pair control loop produced zero false selections by preferring either a gated promotion or a defer outcome.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Simulation runs</div>
+        <div class="value">50</div>
+      </div>
+      <div class="metric">
+        <div class="label">Naive false winners</div>
+        <div class="value warn">50</div>
+      </div>
+      <div class="metric">
+        <div class="label">Correct final promotions</div>
+        <div class="value good">36</div>
+      </div>
+      <div class="metric">
+        <div class="label">False final promotions</div>
+        <div class="value good">1</div>
+      </div>
+    </div>
+
+    <h2>Interpretation</h2>
+    <ul>
+      <li>The synthetic noisy candidate still wins by naive all-trial median because contaminated trials make it appear spuriously fast.</li>
+      <li>The contamination-aware engine mostly promotes the intended winner, <code>candidate_consistent</code>, and otherwise defers instead of over-promoting.</li>
+      <li>The remaining one false promotion indicates the control loop is already directionally strong, while still leaving room for stricter evidence rules in future iterations.</li>
+      <li>This is the right prototype shape for demonstrating the patent thesis: telemetry-conditioned contamination state plus pairwise ambiguity-guided reruns plus promotion gating.</li>
+    </ul>
+
+    <h2>Result Plots</h2>
+    <div class="grid">
+      <div>
+        <img src="plots/selection_outcomes.png" alt="Selection outcomes plot">
+      </div>
+      <div>
+        <img src="plots/final_gain_vs_lcb.png" alt="Final gain versus lower confidence bound plot">
+      </div>
+    </div>
+
+    <p style="margin-top:18px;"><img src="plots/decision_timeline.png" alt="Decision timeline plot"></p>
+
+    <h2>Where To Go Next</h2>
+    <ul>
+      <li>Open <code>tech_spec.html</code> for implementation detail and artifact mapping.</li>
+      <li>Open <code>architecture.html</code> for the control-flow and component diagrams.</li>
+      <li>Move the folder to a GPU machine and run the Triton-backed workloads to replace synthetic CPU telemetry with real accelerator telemetry.</li>
+    </ul>
+  </main>
+</body>
+</html>
