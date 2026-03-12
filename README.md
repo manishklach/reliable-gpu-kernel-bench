@@ -111,6 +111,21 @@ This writes:
 - `visual_assets/visual_gallery.html`
 - `visual_assets/diagrams/*.svg`
 - `visual_assets/plots/*_highres.png`
+- `visual_assets/deck/*`
+
+## Visual preview
+
+Control loop:
+
+![Control loop](visual_assets/diagrams/control_loop.svg)
+
+Benchmark story card:
+
+![Benchmark story card](visual_assets/deck/benchmark_story_card.png)
+
+Selection outcomes:
+
+![Selection outcomes](visual_assets/plots/selection_outcomes_highres.png)
 
 ## GPU preflight
 

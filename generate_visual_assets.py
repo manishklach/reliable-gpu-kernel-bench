@@ -11,17 +11,28 @@ BASE_DIR = Path(__file__).resolve().parent
 ASSETS_DIR = BASE_DIR / "visual_assets"
 PLOTS_DIR = ASSETS_DIR / "plots"
 DIAGRAMS_DIR = ASSETS_DIR / "diagrams"
+DECK_DIR = ASSETS_DIR / "deck"
 SIM_SUMMARY = BASE_DIR / "simulation_summary.json"
 
 
+def load_payload() -> dict[str, object]:
+    return json.loads(SIM_SUMMARY.read_text(encoding="utf-8"))
+
+
 def load_records() -> list[dict[str, object]]:
-    payload = json.loads(SIM_SUMMARY.read_text(encoding="utf-8"))
+    payload = load_payload()
     return payload["records"]
+
+
+def load_summary() -> dict[str, object]:
+    payload = load_payload()
+    return payload["summary"]
 
 
 def ensure_dirs() -> None:
     PLOTS_DIR.mkdir(parents=True, exist_ok=True)
     DIAGRAMS_DIR.mkdir(parents=True, exist_ok=True)
+    DECK_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def plot_selection_outcomes(records: list[dict[str, object]]) -> None:
@@ -214,6 +225,88 @@ def build_diagrams() -> None:
     )
 
 
+def build_deck_assets(summary: dict[str, object]) -> None:
+    fig = plt.figure(figsize=(14, 8), facecolor="#f3eee6")
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_axis_off()
+
+    ax.text(0.05, 0.92, "Reliable GPU Kernel Bench", fontsize=28, fontweight="bold", family="serif", color="#211d1a")
+    ax.text(
+        0.05,
+        0.865,
+        "Telemetry-aware contamination filtering, finalist-pair reruns, and confidence-gated promotion.",
+        fontsize=15,
+        family="serif",
+        color="#5b534b",
+    )
+
+    cards = [
+        ("Simulation runs", str(summary["runs"]), "#e8f1f8", "#2a6f97"),
+        ("Naive false winners", str(summary["naive_false_winners"]), "#fce8ea", "#8c2f39"),
+        ("Correct promotions", str(summary["final_promotes_true"]), "#eef5e6", "#5a7d2b"),
+        ("False promotions", str(summary["final_false_promotions"]), "#fff4dd", "#bc6c25"),
+    ]
+    x_positions = [0.05, 0.285, 0.52, 0.755]
+    for (label, value, fill, edge), x in zip(cards, x_positions):
+        rect = plt.Rectangle((x, 0.67), 0.19, 0.15, facecolor=fill, edgecolor=edge, linewidth=2.2)
+        ax.add_patch(rect)
+        ax.text(x + 0.095, 0.765, value, ha="center", va="center", fontsize=30, fontweight="bold", family="serif", color="#211d1a")
+        ax.text(x + 0.095, 0.705, label, ha="center", va="center", fontsize=12.5, family="serif", color="#5b534b")
+
+    rect = plt.Rectangle((0.05, 0.12), 0.90, 0.46, facecolor="#fffdf9", edgecolor="#d8cfc4", linewidth=1.8)
+    ax.add_patch(rect)
+    ax.text(0.08, 0.52, "Key prototype story", fontsize=18, fontweight="bold", family="serif", color="#211d1a")
+    bullet_lines = [
+        "Naive raw-median selection is consistently misled by contaminated benchmark sessions.",
+        "The contamination-aware loop routes uncertainty into finalist-only reruns instead of brute-force retesting.",
+        "Promotion is gated on evidence quality, which trades some throughput for far fewer false wins.",
+        "Generated Triton matmul variants are now wired into the same benchmark and promotion engine.",
+    ]
+    y = 0.46
+    for line in bullet_lines:
+        ax.text(0.09, y, f"- {line}", fontsize=15, family="serif", color="#2b2b2b")
+        y -= 0.08
+
+    ax.text(0.08, 0.18, "Use this card in slides, demos, or repo overviews.", fontsize=13, family="serif", color="#6c6258")
+    fig.savefig(DECK_DIR / "benchmark_story_card.png", dpi=260, bbox_inches="tight")
+    plt.close(fig)
+
+    (DECK_DIR / "control_loop_presentation.svg").write_text(
+        """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520">
+<defs>
+  <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto"><path d="M0,0 L14,5 L0,10 Z" fill="#2b2b2b"/></marker>
+</defs>
+<rect width="1600" height="520" fill="#fffdf9"/>
+<text x="70" y="60" font-family="Georgia" font-size="42" font-weight="bold" fill="#211d1a">Telemetry-Aware Kernel Selection</text>
+<text x="70" y="98" font-family="Georgia" font-size="22" fill="#5b534b">Closed-loop rerun allocation and confidence-gated promotion</text>
+<g font-family="Georgia" fill="#211d1a">
+  <rect x="70" y="190" rx="20" ry="20" width="240" height="110" fill="#e8f1f8" stroke="#2a6f97" stroke-width="3"/>
+  <text x="190" y="236" text-anchor="middle" font-size="30">Candidate</text>
+  <text x="190" y="272" text-anchor="middle" font-size="30">kernels</text>
+  <rect x="390" y="190" rx="20" ry="20" width="280" height="110" fill="#eef5e6" stroke="#6b8e23" stroke-width="3"/>
+  <text x="530" y="236" text-anchor="middle" font-size="30">Repeated trials</text>
+  <text x="530" y="272" text-anchor="middle" font-size="24">with telemetry capture</text>
+  <rect x="760" y="120" rx="20" ry="20" width="300" height="96" fill="#f9f1e5" stroke="#bc6c25" stroke-width="3"/>
+  <text x="910" y="175" text-anchor="middle" font-size="28">Contamination signals</text>
+  <rect x="760" y="250" rx="20" ry="20" width="300" height="96" fill="#fce8ea" stroke="#8c2f39" stroke-width="3"/>
+  <text x="910" y="305" text-anchor="middle" font-size="28">Pairwise ambiguity</text>
+  <rect x="1160" y="190" rx="20" ry="20" width="300" height="110" fill="#e8f1f8" stroke="#2a6f97" stroke-width="3"/>
+  <text x="1310" y="236" text-anchor="middle" font-size="30">Finalist-only</text>
+  <text x="1310" y="272" text-anchor="middle" font-size="30">reruns + promotion gate</text>
+</g>
+<g stroke="#2b2b2b" stroke-width="3" fill="none" marker-end="url(#arrow)">
+  <line x1="310" y1="245" x2="390" y2="245"/>
+  <line x1="670" y1="245" x2="760" y2="170"/>
+  <line x1="670" y1="245" x2="760" y2="298"/>
+  <line x1="1060" y1="298" x2="1160" y2="245"/>
+</g>
+<path d="M1160 360 C1010 455, 640 455, 530 315" fill="none" stroke="#8c2f39" stroke-width="3.2" marker-end="url(#arrow)"/>
+<text x="900" y="450" font-family="Georgia" font-size="24" fill="#8c2f39">Only unresolved finalist pairs consume added benchmark budget</text>
+</svg>""",
+        encoding="utf-8",
+    )
+
+
 def build_gallery() -> None:
     html = """<!DOCTYPE html>
 <html lang="en">
@@ -243,6 +336,11 @@ def build_gallery() -> None:
       <div class="card"><h3><a href="diagrams/gpu_batch_flow.svg">GPU Batch Flow</a></h3><img src="diagrams/gpu_batch_flow.svg" alt="GPU batch flow"></div>
       <div class="card"><h3><a href="diagrams/generated_variant_map.svg">Generated Variant Map</a></h3><img src="diagrams/generated_variant_map.svg" alt="Generated variant map"></div>
     </div>
+    <h2>Deck Assets</h2>
+    <div class="grid">
+      <div class="card"><h3><a href="deck/benchmark_story_card.png">Benchmark Story Card</a></h3><img src="deck/benchmark_story_card.png" alt="Benchmark story card"></div>
+      <div class="card"><h3><a href="deck/control_loop_presentation.svg">Presentation Control Loop</a></h3><img src="deck/control_loop_presentation.svg" alt="Presentation control loop"></div>
+    </div>
     <h2>Plots</h2>
     <div class="grid">
       <div class="card"><h3><a href="plots/selection_outcomes_highres.png">Selection Outcomes</a></h3><img src="plots/selection_outcomes_highres.png" alt="Selection outcomes"></div>
@@ -258,10 +356,12 @@ def build_gallery() -> None:
 def main() -> None:
     ensure_dirs()
     records = load_records()
+    summary = load_summary()
     plot_selection_outcomes(records)
     plot_gain_vs_lcb(records)
     plot_decision_timeline(records)
     build_diagrams()
+    build_deck_assets(summary)
     build_gallery()
     print(f"Saved visual assets to {ASSETS_DIR}")
 
