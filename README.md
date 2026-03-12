@@ -43,6 +43,21 @@ This writes:
 - `plots/final_gain_vs_lcb.png`
 - `plots/decision_timeline.png`
 
+## Triton batch runner
+
+On a GPU machine, run:
+
+```powershell
+python triton_batch_runner.py --runs 12 --workload matmul --candidate-mode generated
+```
+
+This writes a dedicated batch bundle under:
+
+- `batch_outputs/triton_matmul_generated/triton_batch_results.csv`
+- `batch_outputs/triton_matmul_generated/triton_batch_summary.json`
+- `batch_outputs/triton_matmul_generated/triton_batch_summary.html`
+- `batch_outputs/triton_matmul_generated/plots/*.png`
+
 ## Docs
 
 - `tech_spec.html`

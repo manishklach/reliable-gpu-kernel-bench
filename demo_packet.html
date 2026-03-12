@@ -97,6 +97,14 @@
       </div>
     </div>
 
+    <h2>GPU Batch Benchmarking</h2>
+    <div class="card">
+      <h3>Repeated Triton generated-variant runs</h3>
+      <p>Use the GPU batch runner to benchmark the generated matmul variants repeatedly and emit a dedicated HTML/CSV/JSON/plot bundle:</p>
+      <p><code>python triton_batch_runner.py --runs 12 --workload matmul --candidate-mode generated</code></p>
+      <p>Outputs land under <code>batch_outputs/triton_matmul_generated</code>.</p>
+    </div>
+
     <h2>Plots</h2>
     <div class="plots">
       <div><img src="plots/selection_outcomes.png" alt="Selection outcomes plot"></div>

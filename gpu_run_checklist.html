@@ -68,6 +68,8 @@
       <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload matmul</pre>
       <p>Generated matmul variant workload:</p>
       <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload matmul --candidate-mode generated</pre>
+      <p>Repeated generated-variant batch run:</p>
+      <pre>python C:\path\to\kernel_noise_prototype\triton_batch_runner.py --runs 12 --workload matmul --candidate-mode generated</pre>
       <p>Fused softmax workload:</p>
       <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload softmax</pre>
     </div>
@@ -79,6 +81,7 @@
         <li><code>latest_run.html</code></li>
         <li><code>latest_run.json</code></li>
         <li><code>latest_run.txt</code></li>
+        <li><code>batch_outputs/triton_matmul_generated/triton_batch_summary.html</code></li>
       </ul>
       <p>These show the naive winner, finalist-pair analysis, final decision, and contamination rates.</p>
     </div>
