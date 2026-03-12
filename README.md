@@ -98,6 +98,20 @@ report will include their summary automatically.
 - `demo_packet.html`
 - `variant_search_report.html`
 
+## Visual assets
+
+Generate polished diagrams and presentation-quality plots with:
+
+```powershell
+python generate_visual_assets.py
+```
+
+This writes:
+
+- `visual_assets/visual_gallery.html`
+- `visual_assets/diagrams/*.svg`
+- `visual_assets/plots/*_highres.png`
+
 ## GPU preflight
 
 ```powershell

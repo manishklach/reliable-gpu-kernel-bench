@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto"><path d="M0,0 L12,4 L0,8 Z" fill="#2b2b2b"/></marker>
+</defs>
+<rect width="1200" height="420" fill="#fffdf9"/>
+<text x="50" y="42" font-family="Georgia" font-size="28" font-weight="bold" fill="#211d1a">GPU Batch Execution Flow</text>
+<g font-family="Georgia" fill="#211d1a">
+  <rect x="50" y="110" width="180" height="74" rx="14" fill="#e8f1f8" stroke="#2a6f97" stroke-width="2.4"/>
+  <text x="140" y="154" text-anchor="middle" font-size="22">setup_gpu.py</text>
+  <rect x="280" y="110" width="220" height="74" rx="14" fill="#eef5e6" stroke="#6b8e23" stroke-width="2.4"/>
+  <text x="390" y="154" text-anchor="middle" font-size="22">demo.py --backend triton</text>
+  <rect x="550" y="110" width="260" height="74" rx="14" fill="#f9f1e5" stroke="#bc6c25" stroke-width="2.4"/>
+  <text x="680" y="144" text-anchor="middle" font-size="22">triton_batch_runner.py</text>
+  <text x="680" y="168" text-anchor="middle" font-size="18">generated matmul variants</text>
+  <rect x="860" y="110" width="270" height="74" rx="14" fill="#fce8ea" stroke="#8c2f39" stroke-width="2.4"/>
+  <text x="995" y="144" text-anchor="middle" font-size="22">variant_search_report.py</text>
+  <text x="995" y="168" text-anchor="middle" font-size="18">refresh HTML summary</text>
+
+  <rect x="280" y="250" width="220" height="88" rx="14" fill="#fffaf2" stroke="#6c6258" stroke-width="2.1"/>
+  <text x="390" y="286" text-anchor="middle" font-size="20">latest_run.html</text>
+  <text x="390" y="310" text-anchor="middle" font-size="18">single-run artifact</text>
+
+  <rect x="550" y="250" width="260" height="88" rx="14" fill="#fffaf2" stroke="#6c6258" stroke-width="2.1"/>
+  <text x="680" y="286" text-anchor="middle" font-size="20">batch_outputs/...</text>
+  <text x="680" y="310" text-anchor="middle" font-size="18">CSV, JSON, HTML, PNG</text>
+
+  <rect x="860" y="250" width="270" height="88" rx="14" fill="#fffaf2" stroke="#6c6258" stroke-width="2.1"/>
+  <text x="995" y="286" text-anchor="middle" font-size="20">variant_search_report.html</text>
+  <text x="995" y="310" text-anchor="middle" font-size="18">candidate table + results</text>
+</g>
+<g stroke="#2b2b2b" stroke-width="2.4" fill="none" marker-end="url(#arrow)">
+  <line x1="230" y1="147" x2="280" y2="147"/>
+  <line x1="500" y1="147" x2="550" y2="147"/>
+  <line x1="810" y1="147" x2="860" y2="147"/>
+  <line x1="390" y1="184" x2="390" y2="250"/>
+  <line x1="680" y1="184" x2="680" y2="250"/>
+  <line x1="995" y1="184" x2="995" y2="250"/>
+</g>
+</svg>

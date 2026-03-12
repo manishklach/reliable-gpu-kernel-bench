@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Asset Gallery</title>
+  <style>
+    body { margin: 0; background: #f3eee6; color: #211d1a; font-family: Georgia, "Times New Roman", serif; }
+    main { max-width: 1180px; margin: 24px auto; padding: 30px 36px 44px; background: #fffdf8; border: 1px solid #d8cfc4; box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    h1, h2 { margin-top: 0; }
+    h2 { margin-top: 28px; padding-top: 10px; border-top: 1px solid #d8cfc4; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { border: 1px solid #d8cfc4; background: #fffaf2; padding: 14px 16px; }
+    img { max-width: 100%; border: 1px solid #d8cfc4; background: white; }
+    a { color: #2a6f97; }
+    p { line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Visual Asset Gallery</h1>
+    <p>Presentation-ready diagrams and higher-quality plots for the benchmark-selection prototype.</p>
+    <h2>Diagrams</h2>
+    <div class="grid">
+      <div class="card"><h3><a href="diagrams/control_loop.svg">Control Loop</a></h3><img src="diagrams/control_loop.svg" alt="Control loop"></div>
+      <div class="card"><h3><a href="diagrams/gpu_batch_flow.svg">GPU Batch Flow</a></h3><img src="diagrams/gpu_batch_flow.svg" alt="GPU batch flow"></div>
+      <div class="card"><h3><a href="diagrams/generated_variant_map.svg">Generated Variant Map</a></h3><img src="diagrams/generated_variant_map.svg" alt="Generated variant map"></div>
+    </div>
+    <h2>Plots</h2>
+    <div class="grid">
+      <div class="card"><h3><a href="plots/selection_outcomes_highres.png">Selection Outcomes</a></h3><img src="plots/selection_outcomes_highres.png" alt="Selection outcomes"></div>
+      <div class="card"><h3><a href="plots/gain_vs_lcb_highres.png">Gain vs LCB</a></h3><img src="plots/gain_vs_lcb_highres.png" alt="Gain vs LCB"></div>
+      <div class="card"><h3><a href="plots/decision_timeline_highres.png">Decision Timeline</a></h3><img src="plots/decision_timeline_highres.png" alt="Decision timeline"></div>
+    </div>
+  </main>
+</body>
+</html>

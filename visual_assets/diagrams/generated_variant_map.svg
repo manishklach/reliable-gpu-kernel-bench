@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520">
+<rect width="1200" height="520" fill="#fffdf9"/>
+<text x="50" y="42" font-family="Georgia" font-size="28" font-weight="bold" fill="#211d1a">Generated Triton Matmul Variant Map</text>
+<g font-family="Georgia" fill="#211d1a">
+  <rect x="60" y="90" width="250" height="150" rx="16" fill="#e8f1f8" stroke="#2a6f97" stroke-width="2.4"/>
+  <text x="185" y="130" text-anchor="middle" font-size="22">balanced</text>
+  <text x="185" y="164" text-anchor="middle" font-size="18">128 x 128 x 64</text>
+  <text x="185" y="194" text-anchor="middle" font-size="18">warps: 4, stages: 4</text>
+  <text x="185" y="224" text-anchor="middle" font-size="18">general-purpose square tile</text>
+
+  <rect x="335" y="90" width="250" height="150" rx="16" fill="#eef5e6" stroke="#6b8e23" stroke-width="2.4"/>
+  <text x="460" y="130" text-anchor="middle" font-size="22">wide_n</text>
+  <text x="460" y="164" text-anchor="middle" font-size="18">64 x 256 x 32</text>
+  <text x="460" y="194" text-anchor="middle" font-size="18">warps: 4, stages: 4</text>
+  <text x="460" y="224" text-anchor="middle" font-size="18">favours larger N dimension</text>
+
+  <rect x="610" y="90" width="250" height="150" rx="16" fill="#f9f1e5" stroke="#bc6c25" stroke-width="2.4"/>
+  <text x="735" y="130" text-anchor="middle" font-size="22">aggressive</text>
+  <text x="735" y="164" text-anchor="middle" font-size="18">128 x 256 x 64</text>
+  <text x="735" y="194" text-anchor="middle" font-size="18">warps: 8, stages: 3</text>
+  <text x="735" y="224" text-anchor="middle" font-size="18">higher-throughput regime</text>
+
+  <rect x="885" y="90" width="250" height="150" rx="16" fill="#fce8ea" stroke="#8c2f39" stroke-width="2.4"/>
+  <text x="1010" y="130" text-anchor="middle" font-size="22">compact</text>
+  <text x="1010" y="164" text-anchor="middle" font-size="18">64 x 64 x 32</text>
+  <text x="1010" y="194" text-anchor="middle" font-size="18">warps: 2, stages: 5</text>
+  <text x="1010" y="224" text-anchor="middle" font-size="18">lighter-weight execution</text>
+
+  <rect x="190" y="320" width="820" height="110" rx="16" fill="#fffaf2" stroke="#6c6258" stroke-width="2.2"/>
+  <text x="600" y="360" text-anchor="middle" font-size="22">All variants flow into the same contamination-aware benchmark engine</text>
+  <text x="600" y="392" text-anchor="middle" font-size="18">Telemetry capture -> contamination classification -> finalist pair reruns -> promotion gate</text>
+</g>
+</svg>
