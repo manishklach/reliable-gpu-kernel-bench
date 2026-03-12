@@ -64,6 +64,12 @@
 
     <h2>4. Run the real Triton workloads</h2>
     <div class="step">
+      <p>Fastest path:</p>
+      <pre>powershell -ExecutionPolicy Bypass -File .\run_gpu_flow.ps1</pre>
+      <p>This runs preflight, single-run Triton matmul, generated matmul, the Triton batch runner, and refreshes the variant search report.</p>
+    </div>
+
+    <div class="step">
       <p>Matrix multiplication workload:</p>
       <pre>python C:\path\to\kernel_noise_prototype\demo.py --backend triton --workload matmul</pre>
       <p>Generated matmul variant workload:</p>

@@ -58,6 +58,22 @@ This writes a dedicated batch bundle under:
 - `batch_outputs/triton_matmul_generated/triton_batch_summary.html`
 - `batch_outputs/triton_matmul_generated/plots/*.png`
 
+## One-command GPU flow
+
+On a GPU machine, you can run the full Triton flow with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run_gpu_flow.ps1
+```
+
+This runs:
+
+- `setup_gpu.py`
+- single Triton matmul
+- generated Triton matmul
+- Triton generated-variant batch run
+- `variant_search_report.py`
+
 ## Variant search report
 
 Generate the generated-candidate report with:
